@@ -1,4 +1,3 @@
-# TODO: lines between each scope/indent
 { pkgs, ...}:{
   plugins = {
     snacks = {
@@ -6,7 +5,7 @@
       settings = {
         bigfile.enabled = true;
         # dashboard.enabled = true;
-        explorer.enabled = true;
+        explorer.enabled = false;
         indent.enabled = true;
         input.enabled = true;
         picker.enabled = false;
@@ -14,7 +13,7 @@
         quickfile.enabled = true;
         scope.enabled = true;
         scroll.enabled = true;
-        statuscolumn.enabled = true;
+        statuscolumn.enabled = false;
         words.enabled = true;
       };
     }; 

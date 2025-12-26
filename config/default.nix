@@ -13,7 +13,10 @@
       vim.o.timeoutlen = 500
     ''; 
   };
- 
+
+
+  plugins.web-devicons.enable = true;
+
   colorschemes.gruvbox = {
     enable = true;
     settings = {
