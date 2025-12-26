@@ -56,4 +56,19 @@
       };
     };
   };
+
+  autoCmd = [
+    {
+      event = "TermClose";
+      pattern = "*lazygit*";
+      callback = {__raw = ''
+      function()
+        if package.loaded["neo-tree.sources.git_status"] then
+          require("neo-tree.sources.git_status").refresh()
+        end
+      end
+       '';
+      };
+    }
+  ];
 }
