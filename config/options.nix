@@ -28,5 +28,15 @@ globalOpts = {
     splitright = true;
     splitbelow = true;
     swapfile = false;
+    confirm = true;
+    
+    # Folding
+    foldmethod = "expr";
+    foldexpr = "v:lua.vim.treesitter.foldexpr()";
+
+    foldlevel = 99;
+    foldlevelstart = 99;
+    foldenable = true;
+    foldcolumn = "auto";
   };
 }
