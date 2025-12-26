@@ -17,6 +17,7 @@ globalOpts = {
     termguicolors = true;
     background = "dark";
     signcolumn = "yes";
+    cmdheight = 0;
 
     # Search settings
     ignorecase = true;
