@@ -1,7 +1,19 @@
 {
   # Import all your configuration modules here
-  imports = [ ./bufferline.nix ];
+  imports = [ ./plugins ];
+ 
+  globals.mapleader = " "; # Sets the leader key to comma
+
   
+  plugins.which-key = {
+    enable = true;
+  
+    luaConfig.pre = ''
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+    ''; 
+  };
+ 
   colorschemes.gruvbox = {
     enable = true;
     settings = {
