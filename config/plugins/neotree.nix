@@ -1,4 +1,4 @@
-{
+{lib, ...}:{
   plugins.neo-tree = {
     enable = true;
         
@@ -21,14 +21,21 @@
           "l" = "open";
           "h" = "close_node";
           "<space>" = "none";
-          # "y" = ''
-          #     function()
-          #       -- local node = state.tree:get_node()
-          #       -- local path = node:get_id()
-          #       -- vim.fn.setreg("+", path, "c")
-          #     end
-          # '';
           
+
+
+          "y" = lib.nixvim.utils.listToUnkeyedAttrs [ {__raw = ''
+          function(state)
+              local node = state.tree:get_node()
+              local path = node:get_id()
+              vim.print("Yanked:".. path)
+              vim.fn.setreg("+", path, "c")
+          end
+          '';} ] // { desc = "Copy Path to Clipboard"; };
+          
+
+
+
           # "O" = {
           # };
           # "P" = {
