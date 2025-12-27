@@ -18,6 +18,7 @@ globalOpts = {
     background = "dark";
     signcolumn = "yes";
     cmdheight = 0;
+    fillchars = { eob = " "; };
 
     # Search settings
     ignorecase = true;
