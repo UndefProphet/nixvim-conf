@@ -20,6 +20,9 @@
       };      
 
       window = {
+        position = "left";
+        width = 25;
+
         mappings = {
           "l" = "open";
           "h" = "close_node";
