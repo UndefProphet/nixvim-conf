@@ -1,7 +1,7 @@
 { pkgs, lib, ...}:{
   imports = [
     ./bufferline.nix 
-    ./snacks.nix
+    ./mini.nix
     ./lualine.nix
     ./neotree.nix
     ./lazygit.nix
