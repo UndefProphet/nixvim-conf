@@ -1,7 +1,6 @@
 {lib, ...}:{
   plugins.neo-tree = {
     enable = true;
-        
     settings = {
       sources = [ "filesystem" "buffers" "git_status" ];
       # source_selector = {
@@ -17,11 +16,16 @@
           enabled = true;
           leave_dirs_open = true;
         };
+        filtered_items = {
+          visible = true;
+          hide_dotfiles = false;
+          hide_gitignored = false;
+        };
       };      
 
       window = {
         position = "left";
-        width = 25;
+        width = 30;
 
         mappings = {
           "l" = "open";
