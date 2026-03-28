@@ -13,38 +13,41 @@
 
   #plugins.lazy.enable = true;
   plugins.tmux-navigator.enable = true;
-  
+
   plugins.lsp = {
     enable = true;
-    servers = {
-      # Nix
-      nixd.enable = true;
-      nil_ls.enable = true;
+    servers = builtins.mapAttrs (_name: opts: {
+      enable = true;
+      package = null;
+    } // opts) {
+        nixd = { package = pkgs.nixd; };
+        nil_ls = { package = pkgs.nil; };
 
-      # Web
-      ts_ls.enable = true;
-      html.enable = true;
-      cssls.enable = true;
-      jsonls.enable = true;
+        # Web
+        ts_ls = {};
+        html = {};
+        cssls = {};
+        jsonls = {};
 
-      # Backend
-      pyright.enable = true;
-      gopls.enable = true;
-      rust_analyzer = {
-        enable = true;
-        installRustc = true;
-        installCargo = true;
+        # Backend
+        pyright = {};
+        gopls = {};
+        lua_ls = {};
+        rust_analyzer = {
+          installRustc = true;
+          installCargo = true;
+        };
+
+        # Config / Infra
+        yamlls = {};
+        bashls = {};
+        dockerls = {};
+
+        # UI
+        qmlls = {}; # QT/qml
       };
-      
-      # Config / Infra
-      yamlls.enable = true;
-      bashls.enable = true;
-      dockerls.enable = true;
-
-      qmlls.enable = true; # QT/qml
-    };
   };
-  
+
   # TODO FIX blink showing up behind or infornt of cmp also add sources to blink
   # plugins.blink-cmp  = {
   #   enable = true;
@@ -64,6 +67,7 @@
     indent.enable = true;
     folding.enable = true;
     grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+    
   };
 
   plugins.cmp = {
