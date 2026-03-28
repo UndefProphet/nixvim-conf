@@ -1,4 +1,4 @@
-{
+{ lib, ... }:{
   # Import all your configuration modules here
   imports = [
     ./options.nix
@@ -6,45 +6,45 @@
     ./plugins
   ];
  
-  globals.mapleader = " "; # Sets the leader key to comma
+  globals.mapleader = lib.mkDefault " "; # Sets the leader key to comma
 
   
   plugins.which-key = {
     enable = true;
   
-    luaConfig.pre = ''
+    luaConfig.pre = lib.mkDefault ''
       vim.o.timeout = true
       vim.o.timeoutlen = 500
     ''; 
   };
 
 
-  plugins.web-devicons.enable = true;
+  plugins.web-devicons.enable = lib.mkDefault true;
 
   colorschemes.gruvbox = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
-      terminal_colors = true; # add neovim terminal colors
-      undercurl = true;
-      underline = true;
-      bold = true;
+      terminal_colors = lib.mkDefault true; # add neovim terminal colors
+      undercurl = lib.mkDefault true;
+      underline = lib.mkDefault true;
+      bold = lib.mkDefault true;
       italic = {
-        strings = true;
-        emphasis = true;
-        comments = true;
-        operators = false;
-        folds = true;
+        strings = lib.mkDefault true;
+        emphasis = lib.mkDefault true;
+        comments = lib.mkDefault true;
+        operators = lib.mkDefault false;
+        folds = lib.mkDefault true;
       };
-      strikethrough = true;
-      invert_selection = false;
-      invert_signs = false;
-      invert_tabline = false;
-      inverse = true; # invert background for search, diffs, statuslines and errors
-      contrast = ""; # can be "hard", "soft" or empty string
+      strikethrough = lib.mkDefault true;
+      invert_selection = lib.mkDefault false;
+      invert_signs = lib.mkDefault false;
+      invert_tabline = lib.mkDefault false;
+      inverse = lib.mkDefault true; # invert background for search, diffs, statuslines and errors
+      contrast = lib.mkDefault ""; # can be "hard", "soft" or empty string
       palette_overrides = {};
       overrides = {};
-      dim_inactive = false;
-      transparent_mode = true; 
+      dim_inactive = lib.mkDefault false;
+      transparent_mode = lib.mkDefault true; 
     };
   };
 }

@@ -1,8 +1,8 @@
 {
 globalOpts = {
-    # Line numbers
+   # Line numbers
     number = true;
-    relativenumber = true;
+    relativenumber = false;
     scrolloff = 8;
 
     # Tabs & Indentation
@@ -31,7 +31,7 @@ globalOpts = {
     splitbelow = true;
     swapfile = false;
     confirm = true;
-    
+
     # Folding
     foldmethod = "expr";
     foldexpr = "v:lua.vim.treesitter.foldexpr()";
